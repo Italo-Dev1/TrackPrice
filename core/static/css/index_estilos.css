@@ -1,0 +1,206 @@
+/* ===============================
+   RESET / BASE
+================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f8fc;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===============================
+   HEADER (TOPO)
+================================ */
+.container-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 20px clamp(24px, 8vw, 120px);
+    width: 100%;
+}
+
+.container-header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.container-header p {
+    margin: 6px 0 0;
+    font-size: 16px;
+    color: #6b7280;
+}
+
+/* ===============================
+   MENU HORIZONTAL
+================================ */
+.container-options {
+    display: flex;
+    gap: 30px;
+    padding: 10px clamp(24px, 8vw, 120px);
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+.container-options button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    color: #9ca3af;
+    font-size: 16px;
+    font-weight: 500;
+
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.container-options button:hover {
+    color: #4f46e5;
+    background-color: #eef2ff;
+    border-radius: 6px;
+}
+
+.container-options button.active {
+    color: #4f46e5;
+    border-bottom: 2px solid #4f46e5;
+}
+
+/* ===============================
+   ÍCONES MATERIAL
+================================ */
+.material-symbols-outlined {
+    font-size: 22px;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+/* ===============================
+   BODY / DASHBOARD
+================================ */
+.container-body {
+    flex: 1;
+    background-color: #f7f8fc;
+}
+
+.container-display {
+    width: 100%;
+}
+
+/* ===============================
+   TÍTULO DA PÁGINA
+================================ */
+.container-header-body {
+    padding: 28px clamp(24px, 8vw, 120px) 16px;
+}
+
+.container-header-body h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    color: #111827;
+}
+
+.container-header-body::after {
+    content: "";
+    display: block;
+    margin-top: 12px;
+    height: 1px;
+    background-color: #e5e7eb;
+}
+
+/* ===============================
+   GRID DO DASHBOARD
+================================ */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px clamp(24px, 8vw, 120px) 40px;
+}
+
+/* ===============================
+   CARDS
+================================ */
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.dashboard-card h3 {
+    margin: 6px 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* ===============================
+   ÍCONES DOS CARDS
+================================ */
+.icon {
+    font-size: 30px;
+    padding: 12px;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+/* SEMÂNTICA DE CORES */
+.icon.blue {
+    background-color: #3b82f6; /* info */
+}
+
+.icon.green {
+    background-color: #22c55e; /* sucesso */
+}
+
+.icon.dark-green {
+    background-color: #15803d; /* menor preço */
+}
+
+.icon.orange {
+    background-color: #f59e0b; /* alerta */
+}
+
+.icon.red {
+    background-color: #ef4444; /* crítico */
+}
+
+.icon.purple {
+    background-color: #8b5cf6;
+}
