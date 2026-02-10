@@ -1,43 +1,36 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'css/produtos_estilos.css' %}">
-    <link rel="" href="{% static 'css/estilos.css' %}">
-    <script type="module" src="app.js"></script>
+<section class="produtos-container">
+    <h2>Produtos Monitorados</h2>
 
-</head>
-<body>
-    <table>
+    <table class="produtos-table">
         <thead>
             <tr>
-                <th> ID do Produto </th>
-                <th> Nome do Produto </th>
-                <th> Forma de Pagamento</th>
-                <th> Valor Total </th>
-                <th> Parcelamento </th>
-                <th> Link do Produto </th>
+                <th>Produto</th>
+                <th>Pagamento</th>
+                <th>Valor Total</th>
+                <th>Parcelas</th>
+                <th>Link</th>
             </tr>
         </thead>
-        <tbody style="text-align: center">
-
-        {% for prod in produtos %}
+        <tbody>
+            {% for produto in produtos %}
             <tr>
-                <td>{{ prod.id }}</td>
-                <td>{{ prod.nome }}</td>
-                <td>{{ prod.forma_de_pagamento }}</td>
-                <td>{{ prod.valor_total }}</td>
-                <td>{{ prod.parcelamento }}</td>
-                <td><a href="{{ prod.link_produto }}" >Link</a></td>
+                <td>{{ produto.nome }}</td>
+                <td>{{ produto.forma_de_pagamento }}</td>
+                <td>R$ {{ produto.valor_total }}</td>
+                <td>{{ produto.parcelamento }}x</td>
+                <td>
+                    <a href="{{ produto.link_produto }}" target="_blank">
+                        Ver produto
+                    </a>
+                </td>
             </tr>
-        {% empty %}
+            {% empty %}
             <tr>
-                <td colspan="5">Nenhum produto cadastrado</td>
+                <td colspan="5" class="empty">
+                    Nenhum produto cadastrado
+                </td>
             </tr>
-        {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+</section>

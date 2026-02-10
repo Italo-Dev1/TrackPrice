@@ -1,12 +1,15 @@
-// DEIXA OS MENUS COM ASPECTO SELECIONADO E DESMARCA O ANTERIOR
-const buttons = document.querySelectorAll('.container-options button');
+const buttons = document.querySelectorAll(".menu-btn");
+const views = document.querySelectorAll(".view");
 
 buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        // remove active de todos
-        buttons.forEach(btn => btn.classList.remove('active'));
+    button.addEventListener("click", () => {
 
-        // adiciona active no clicado
-        button.classList.add('active');
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        views.forEach(view => view.classList.remove("active"));
+        const target = button.dataset.view;
+        document.getElementById(target).classList.add("active");
+
     });
 });

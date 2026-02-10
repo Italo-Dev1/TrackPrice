@@ -1,62 +1,109 @@
-{% load static %} <!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="pt-br">
-   <head>
-      <meta charset="UTF-8">
-      <title>Home</title>
-      <link rel="stylesheet" href="{% static 'css/index_estilos.css' %}">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-   </head>
-   <body>
-      <div class="container-header">
-         <h1>Track Price Monitor</h1>
-         <p>Sistema de monitoramento de preço</p>
-      </div>
-      <div class="container-options"> <button class="btn-dashboard active"> <span class="material-symbols-outlined">analytics</span> <span>Dashboard</span> </button> <button class="btn-produtos"> <span class="material-symbols-outlined">inventory</span> <span>Produtos</span> </button> <button class="btn-relatorios"> <span class="material-symbols-outlined">description</span> <span>Relatórios</span> </button> </div>
-      <div class="container-body">
-         <div class="container-display">
-            <div class="container-header-body">
-               <h2>Dashboard - Visão Geral</h2>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Track Price Monitor</title>
+    <link rel="stylesheet" href="{% static 'css/produtos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/relatorios.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/index_estilos.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+</head>
+<body>
+
+<header class="container-header">
+    <h1>Track Price Monitor</h1>
+    <p>Sistema de monitoramento de preço</p>
+</header>
+
+<nav class="container-options">
+    <button class="menu-btn active" data-view="dashboard">
+        <span class="material-symbols-outlined">analytics</span>
+        <span>Dashboard</span>
+    </button>
+
+    <button class="menu-btn" data-view="produtos">
+        <span class="material-symbols-outlined">inventory</span>
+        <span>Produtos</span>
+    </button>
+
+    <button class="menu-btn" data-view="relatorios">
+        <span class="material-symbols-outlined">description</span>
+        <span>Relatórios</span>
+    </button>
+</nav>
+
+
+<main class="container-body">
+
+    <section id="dashboard" class="view active">
+
+        <h2>Dashboard · Visão Geral</h2>
+
+        <section class="dashboard-grid">
+
+            <div class="dashboard-card">
+                <span class="material-symbols-outlined icon blue">inventory</span>
+                <div>
+                    <p>Total de Produtos</p>
+                    <h3>{{ total_produtos }}</h3>
+                </div>
             </div>
-            <div class="dashboard-grid">
-               <div class="dashboard-card">
-                  <span class="material-symbols-outlined icon blue">inventory</span>
-                  <div>
-                     <p>Total de Produtos</p>
-                     <h3>0</h3>
-                  </div>
-               </div>
-               <div class="dashboard-card">
-                  <span class="material-symbols-outlined icon green">attach_money</span>
-                  <div>
-                     <p>Preço Médio</p>
-                     <h3>R$ 0,00</h3>
-                  </div>
-               </div>
-               <div class="dashboard-card">
-                  <span class="material-symbols-outlined icon dark-green">trending_down</span>
-                  <div>
-                     <p>Menor Preço</p>
-                     <h3>R$ 0,00</h3>
-                  </div>
-               </div>
-               <div class="dashboard-card">
-                  <span class="material-symbols-outlined icon orange">trending_up</span>
-                  <div>
-                     <p>Maior Preço</p>
-                     <h3>R$ 0,00</h3>
-                  </div>
-               </div>
-               <div class="dashboard-card">
-                  <span class="material-symbols-outlined icon orange">paid</span>
-                  <div>
-                     <p>Produtos Mais Caros </p>
-                     <h3>NVIDIA 5070TI</h3>
-                  </div>
-               </div>
+
+            <div class="dashboard-card">
+                <span class="material-symbols-outlined icon green">attach_money</span>
+                <div>
+                    <p>Preço Médio</p>
+                    <h3>R$ {{ preco_medio|floatformat:2 }}</h3>
+                </div>
             </div>
-         </div>
-      </div>
-      </div>
-   </body>
-   <script src="{% static 'js/index.js' %}"></script>
+
+            <div class="dashboard-card">
+                <span class="material-symbols-outlined icon dark-green">trending_down</span>
+                <div>
+                    <p>Menor Preço</p>
+                    <h3>R$ {{ menor_preco|floatformat:2 }}</h3>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <span class="material-symbols-outlined icon orange">trending_up</span>
+                <div>
+                    <p>Maior Preço</p>
+                    <h3>R$ {{ maior_preco|floatformat:2 }}</h3>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <span class="material-symbols-outlined icon red">paid</span>
+                <div>
+                    <p>Produto Mais Caro</p>
+                    <h3>{{ produto_mais_caro.nome|default:"-" }}</h3>
+                </div>
+            </div>
+
+            <div class="dashboard-card">
+                <span class="material-symbols-outlined icon green">price_check</span>
+                <div>
+                    <p>Produto Mais Barato</p>
+                    <h3>{{ produto_mais_barato.nome|default:"-" }}</h3>
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+    <section id="produtos" class="view">
+        {% include "produtos.html" %}
+    </section>
+
+    <section id="relatorios" class="view">
+        {% include "relatorios.html" %}
+    </section>
+
+</main>
+
+<script src="{% static 'js/index.js' %}"></script>
+</body>
 </html>
