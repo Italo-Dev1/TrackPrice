@@ -1,35 +1,27 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<section class="relatorios-container">
+    <h2>Relatórios</h2>
 
-</head>
-<body>
-    <section class="relatorios-container">
-        <h2>Relatórios</h2>
+    <div class="relatorios-grid">
 
-        <div class="relatorios-grid">
-
-            <div class="relatorio-card">
-                <h3>Total de Produtos</h3>
-                <p>{{ total_produtos }}</p>
-            </div>
-
-            <div class="relatorio-card">
-                <h3>Preço Médio</h3>
-                <p>R$ {{ preco_medio|floatformat:2 }}</p>
-            </div>
-
-            <div class="relatorio-card">
-                <h3>Maior Preço</h3>
-                <p>R$ {{ maior_preco|floatformat:2 }}</p>
-            </div>
-
-            <div class="relatorio-card">
-                <h3>Menor Preço</h3>
-                <p>R$ {{ menor_preco|floatformat:2 }}</p>
-            </div>
-
+        <div class="relatorio-card">
+            <h3>Total de Produtos</h3>
+            <p>{{ total_produtos }}</p>
         </div>
-    </section>
-</body>
+
+        <div class="relatorio-card">
+            <h3>Preço Médio</h3>
+            <p>R$ {{ preco_medio|floatformat:2 }}</p>
+        </div>
+
+        <div class="relatorio-card">
+            <h3>Maior Preço</h3>
+            <p>R$ {{ maior_preco|floatformat:2 }}</p>
+        </div>
+
+        <div class="relatorio-card">
+            <h3>Menor Preço</h3>
+            <p>R$ {{ menor_preco|floatformat:2 }}</p>
+        </div>
+
+    </div>
+</section>
