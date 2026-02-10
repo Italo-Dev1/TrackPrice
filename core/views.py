@@ -18,3 +18,8 @@ def index(request):
     }
 
     return render(request, "index.html", context)
+
+
+def produtos(request):
+    produtos = Produto.objects.all()
+    return render(request, "produtos.html", {"produtos": produtos})
