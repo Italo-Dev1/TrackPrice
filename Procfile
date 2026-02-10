@@ -1,0 +1,1 @@
+web: gunicorn TrackPrice.wsgi --log-file -
