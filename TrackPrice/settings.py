@@ -29,7 +29,8 @@ SECRET_KEY = os.environ.get(
 
 #  DEBUG = True == Desenvolvimento | DEBUG = False == Produção
 DEBUG = os.environ.get('DJANGO_DEBUG') == 'True'
-
+# DEBUG = True
+# ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['.onrender.com']
 
 
