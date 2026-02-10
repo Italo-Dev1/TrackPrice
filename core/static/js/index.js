@@ -8,6 +8,7 @@ buttons.forEach(button => {
         button.classList.add("active");
 
         views.forEach(view => view.classList.remove("active"));
+
         const target = button.dataset.view;
         document.getElementById(target).classList.add("active");
 
