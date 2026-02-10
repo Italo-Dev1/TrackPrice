@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-r6fk*d^@jt9&uvvr^k+i_l8dmv#10%n0=pcorh(+syv!)hy0u=
 #  DEBUG = True == Desenvolvimento | DEBUG = False == Produção
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,6 +122,8 @@ USE_TZ = True
 STATIC_URL = '/static/' # Usada durante o desenvolvimento
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") # Usado em produção
 
+
+LOGOUT_REDIRECT_URL = 'index'
 # Apenas para produção (DEBUG = False) remove o cache do navegador remover quando for subir pra prod.
 STORAGES = {
     "staticfiles": {
