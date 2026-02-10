@@ -28,11 +28,14 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 
 #  DEBUG = True == Desenvolvimento | DEBUG = False == Produção
-DEBUG = os.environ.get('DJANGO_DEBUG') == 'True'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 # DEBUG = True
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['.onrender.com']
-
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.onrender.com',
+]
 
 # Application definition
 
@@ -128,8 +131,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") # Usado em produção
 
 LOGOUT_REDIRECT_URL = 'index'
 # Apenas para produção (DEBUG = False) remove o cache do navegador remover quando for subir pra prod.
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
-    },
-}
+if not DEBUG:
+    STORAGES = {
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        },
+    }
