@@ -1,0 +1,33 @@
+.relatorios-container {
+    padding: 24px;
+}
+
+.relatorios-container h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.relatorios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.relatorio-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.relatorio-card h3 {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.relatorio-card p {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+}

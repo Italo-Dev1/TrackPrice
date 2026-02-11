@@ -1,0 +1,56 @@
+.produtos-container {
+    padding: 24px;
+}
+
+.produtos-container h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.produtos-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.produtos-table thead {
+    background: #f4f6f8;
+}
+
+.produtos-table th,
+.produtos-table td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.produtos-table th {
+    font-weight: 600;
+    color: #333;
+}
+
+.produtos-table tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+.produtos-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.produtos-table a {
+    color: #4f46e5;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.produtos-table a:hover {
+    text-decoration: underline;
+}
+
+.produtos-table .empty {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
