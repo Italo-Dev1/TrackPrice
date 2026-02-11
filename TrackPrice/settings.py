@@ -28,14 +28,14 @@ SECRET_KEY = os.environ.get(
 # SECURITY WARNING: don't run with debug turned on in production!
 
 #  DEBUG = True == Desenvolvimento | DEBUG = False == Produção
-# DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
-DEBUG = True
-ALLOWED_HOSTS = ['*']
-# ALLOWED_HOSTS = [
-#     'localhost',
-#     '127.0.0.1',
-#     '.onrender.com',
-# ]
+# DEBUG = True
+# ALLOWED_HOSTS = ['*']
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.onrender.com',
+]
 
 # Application definition
 
