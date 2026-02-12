@@ -208,3 +208,4 @@ __marimo__/
 .idea
 superuser.txt
 layout img
+.env
